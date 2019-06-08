@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quantity</title>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px"  action="@{Application.ByQuantity()}" method="post">
+    <select name="sel">
+        <option>Greater Than</option>
+        <option>Lesser Than</option>
+    </select>&nbsp;&nbsp;
+    <input type="number" min="1" name="Qty" required/><br>
+    <input type="submit" value="Search"/>
+</form>
+
+</form>
+</body>
+</html>

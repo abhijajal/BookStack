@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Order</title>
+    <script>
+    function getParameterByName(name, url) {
+    if (!url) {
+    url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+
+    </script>
+</head>
+<body  style="text-align:center">
+<script>
+var price=getParameterByName('price');
+var x=getParameterByName('x');
+var order=getParameterByName('order');
+{
+    var arr = order.split("|");
+   var cols=2;
+   var sum="<table style=\"margin-top:50px\" border='1' align=\"center\"  width='1000'><tr><th><h3>Book Name</h3></th><th><h3>Price</h3></th></tr>";
+   for(i=0;i<arr.length-1;i++)
+   {
+   if((i%cols)==0)
+    {
+        sum=sum+"<tr><td><h3><center>"+arr[i]+"</center></h3></td>";
+    }
+   else if((i%cols)==1)
+    {
+
+        sum=sum+"<td><h3><center>"+arr[i]+"</center></h3></td></tr>";
+    }
+   }
+   sum=sum+"<tr><td colspan='2'><h3><center>Total :- "+price+"</center></h3></td></tr>";
+    sum=sum+"</table>";
+    document.write(sum);
+
+
+
+    function data()
+    {
+    cname=document.getElementById("Cname");
+    if(cname.value=="")
+    {
+        alert("Please Enter the Name of Customer");
+    }
+    else
+    {
+    var mywindow = window.open('', 'PRINT', 'height=400,width=600');
+    mywindow.document.write('<html><head><title>Bill</title>');
+    mywindow.document.write('</head><body>');
+    mywindow.document.write('<h1 style="text-align:center"><u><b> BookStack </b></u></h1>');
+    mywindow.document.write('<h2 style="text-align:center">Customer Name :- '+cname.value+'<u><b></b></u></h2>');
+    mywindow.document.write(sum);
+    mywindow.document.write('</body></html>');
+
+    mywindow.document.close();
+    mywindow.focus();
+
+    mywindow.print();
+    mywindow.close();
+    }
+    }
+
+
+}
+
+</script>
+<br><br>
+    Enter Customer Name:- <input type="text" required name="cname" id="Cname">
+    <input type="submit" value="Print" onclick="data()"/>
+
+</body>
+
+
+</html>

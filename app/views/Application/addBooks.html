@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Books</title>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px" action="@{Application.addBookToDB()}" method="post">
+    Enter Books Deatails :- <br>
+    Name :- <input type="text" name="bookName" required/> <br>
+    Publisher :- <input type="text" name="bookPublisher"/> <br>
+    Quantity :- <input type="number" name="bookQuantity" min="1" required/><br>
+    Price :- <input type="number" name="bookPrice" min="10" required /><br>
+    <input type="submit" value="Add Book" required/><br>
+
+</form>
+</body>
+</html>

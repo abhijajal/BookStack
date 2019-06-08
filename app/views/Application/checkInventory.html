@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Check Book Inventory</title>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px"  action="@{Application.viewBook()}" method="post">
+<input type="submit" value="Check Book Inventory ">
+</form>
+
+<form style="text-align:center;margin-top:100px" action="@{Application.addBooks()}" method="post">
+    <input type="submit" value="Add Books"/>
+</form>
+
+<form style="text-align:center;margin-top:100px"  action="@{Application.searchBook()}" method="post">
+    <input type="submit" value="Search Books"/>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Book</title>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px"  action="@{Application.searchPublisher()}" method="post">
+    <input type="submit" value="Search By Publisher"/>
+</form>
+<form style="text-align:center;margin-top:100px"  action="@{Application.searchQuantity()}" method="post">
+    <input type="submit" value="Search By Quantity"/>
+</form>
+
+</body>
+</html>

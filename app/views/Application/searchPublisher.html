@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publisher</title>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px"  action="@{Application.ByPublisher()}" method="post">
+    Enter Publisher Name: <input type="text" name="publisher" required/><br>
+    <input type="submit" value="Search"/>
+</form>
+
+</form>
+</body>
+</html>

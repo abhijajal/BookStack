@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place an Order</title>
+    <script>
+    function getParameterByName(name, url) {
+    if (!url) {
+    url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+    results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+    }
+    </script>
+</head>
+<body>
+<form style="text-align:center;margin-top:100px" method="post" action="@{Application.decision()}">
+    Book Name:-
+    <input type="hidden" name="hidden" id="hidden" value="none"/>
+    <Select style="color:yellow; background-color:blue" name="bookNames">
+       <script>
+        var str=getParameterByName('data');
+           var arr = str.split("|");
+           var sum="";
+           for(i=0;i<arr.length-1;i++)
+           {
+                sum=sum+"<option>"+arr[i]+"</option>"
+           }
+            document.write(sum);
+       </script>
+    </Select>
+    <input type="submit" value="Confirm Order" onclick="new function (){
+    document.getElementById('hidden').value ='ConfirmOrder';
+    }"/>
+
+    <input type="submit" value="Add Another Books" onclick="new function (){
+             document.getElementById('hidden').value ='AddAnotherBooks';
+        }" />
+
+</form>
+
+
+
+
+</body>
+</html>

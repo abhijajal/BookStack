@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+#{extends 'back.html' /}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Display By Quantity</title>
+    <script>
+        function getParameterByName(name, url) {
+    if (!url) {
+      url = window.location.href;
+    }
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+    </script>
+</head>
+
+<body style="text-align:center;margin-top:100px" >
+<u><b>Book Inventory</b></u>  :-
+
+<script type="text/javascript">
+var str=getParameterByName('data');
+var cols=getParameterByName('noOfCols');
+
+   var arr = str.split("|");
+   var sum="<table border='1' align=\"center\" ><tr><th>Name</th><th>Publisher</th><th>Quantity</th><th>Price</th></tr>";
+   for(i=0;i<arr.length-1;i++)
+   {
+   if((i%cols)==0)
+    {
+        sum=sum+"<tr><td>"+arr[i]+"</td>";
+    }
+
+
+   else if((i%cols)==1)
+    {
+
+        sum=sum+"<td>"+arr[i]+"</td>";
+    }
+
+
+    else if((i%cols)==2)
+    {
+
+        sum=sum+"<td>"+arr[i]+"</td>";
+    }
+
+   if ((i%cols)==3 && arr[i]!== 'undefined')
+   {
+    sum=sum+"<td>"+arr[i]+"</td></tr>";
+   }
+
+
+   }
+    sum=sum+"</table>";
+    document.write(sum);
+</script>
+</body>
+</html>
